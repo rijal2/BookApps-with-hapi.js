@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@hapi/hapi": "^20.2.2",
+    "nanoid": "^3.1.25",
     "nodemon": "^2.0.18"
   },
   "devDependencies": {

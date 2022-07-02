@@ -1,9 +1,11 @@
+const addBookHandler = require('./Handler/addBook');
+
 const routes = [
-  // Menyimpan Buuku
+  // Menyimpan Buku
   {
     method: 'POST',
     path: '/books',
-
+    handler: addBookHandler,
   },
 
 ];
