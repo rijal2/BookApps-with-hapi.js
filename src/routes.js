@@ -1,5 +1,6 @@
 const addBookHandler = require('./Handler/addBook');
 const viewBooks = require('./Handler/viewAllBook');
+const viewById = require('./Handler/viewByIdBook');
 
 const routes = [
   // Menyimpan / Menambah Buku
@@ -7,6 +8,12 @@ const routes = [
     method: 'POST',
     path: '/books',
     handler: addBookHandler,
+  },
+  // Menampilkan buku berdasarkan ID
+  {
+    method: 'GET',
+    path: '/books/{id}',
+    handler: viewById,
   },
   // Menampilkan seluruh Buku
   {
