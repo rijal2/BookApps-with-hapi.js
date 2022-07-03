@@ -1,6 +1,7 @@
 const addBookHandler = require('./Handler/addBook');
 const viewBooks = require('./Handler/viewAllBook');
 const viewById = require('./Handler/viewByIdBook');
+const editById = require('./Handler/editBook');
 
 const routes = [
   // Menyimpan / Menambah Buku
@@ -20,6 +21,12 @@ const routes = [
     method: 'GET',
     path: '/books',
     handler: viewBooks,
+  },
+  // Mengdeit/mengubah isi buku
+  {
+    method: 'PUT',
+    path: '/books/{id}',
+    handler: editById,
   },
 
 ];
