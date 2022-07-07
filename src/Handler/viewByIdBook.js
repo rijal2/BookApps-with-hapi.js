@@ -12,7 +12,6 @@ const viewById = (request, h) => {
         book: books[book],
       },
     });
-    console.log(`isi = ${books[book]}`);
     res.code(200);
     return res;
   }

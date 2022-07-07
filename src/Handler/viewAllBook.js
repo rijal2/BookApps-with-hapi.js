@@ -20,7 +20,6 @@ const viewBooks = (request, h) => {
       },
 
     });
-    console.log(`name = ${view.length}`);
     res.code(200);
     return res;
   }
@@ -40,13 +39,12 @@ const viewBooks = (request, h) => {
       },
 
     });
-    console.log(`reading = ${view}`);
     res.code(200);
     return res;
   }
 
   if (finished !== undefined) {
-    allBook = allBook.filter((f) => f.reading === (finished === '1'));
+    allBook = allBook.filter((f) => f.finished === (finished === '1'));
     const view = allBook.map((m) => ({
       id: m.id,
       name: m.name,
@@ -59,7 +57,6 @@ const viewBooks = (request, h) => {
       },
 
     });
-    console.log(`finis = ${view}`);
     res.code(200);
     return res;
   }
