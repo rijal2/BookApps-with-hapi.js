@@ -1,29 +1,29 @@
-/* eslint-disable no-console */
 const books = require('../books');
 
-const viewById = (request, h) => {
+const delBook = (request, h) => {
   const { id } = request.params;
+
   const book = books.findIndex((b) => b.id === id);
 
   if (book !== -1) {
+    books.splice(book, 1);
+
     const res = h.response({
       status: 'success',
-      data: {
-        book: books[book],
-      },
+      message: 'Buku berhasil dihapus',
     });
-    console.log(`isi = ${books[book]}`);
+
     res.code(200);
     return res;
   }
 
   const res = h.response({
     status: 'fail',
-    message: 'Buku tidak ditemukan',
+    message: 'Buku gagal dihapus. Id tidak ditemukan',
   });
 
   res.code(404);
   return res;
 };
 
-module.exports = viewById;
+module.exports = delBook;

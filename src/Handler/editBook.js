@@ -2,7 +2,7 @@ const books = require('../books');
 
 const editById = (request, h) => {
   const { id } = request.params;
-  const insertAt = new Date().toISOString();
+  const insertedAt = new Date().toISOString();
   const {
     name, year, author, summary, publisher, pageCount, readPage, reading,
   } = request.payload;
@@ -28,7 +28,6 @@ const editById = (request, h) => {
   }
 
   const book = books.findIndex((b) => b.id === id);
-
   if (book !== -1) {
     books[book] = {
       ...books[book],
@@ -40,11 +39,11 @@ const editById = (request, h) => {
       pageCount,
       readPage,
       reading,
-      insertAt,
-      updateAt: insertAt,
+      insertedAt,
+      updatedAt: insertedAt,
     };
     const res = h.response({
-      status: 'succes',
+      status: 'success',
       message: 'Buku berhasil diperbarui',
     });
 
